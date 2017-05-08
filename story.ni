@@ -5,17 +5,19 @@ Volume 0 - Setup
 Use American dialect, full-length room descriptions, and the serial comma.
 Use unabbreviated object names.
 Use consensual persuasion.
+Use DACS.
 
 Include Questions by Michael Callaghan.
 Include Distantly Visible Things by Marc Von Der Heiden.
 Include Directionality by Fictitious Frode.
-Include Erotic Storytelling by Fictitious Frode. [my fork, but thanks to..]
+Include Erotic Storytelling by Fictitious Frode.
 Include Simple Conversations by Fictitious Frode.
 Include Conversation Suggestions by Eric Eve.
 Include Glulx Text Effects by Emily Short.
 Include Basic Real Time by Sarah Morayati.
 Include Real-Time Delays by Erik Temple.
 [inspired by fetish casino story, by Thundershark]
+The adult introduction rule is not listed in any rulebook.
 
 Part 0.1.1 - Metadata
 
@@ -114,7 +116,6 @@ Definition: something is draggable if it is not had by the player and it is not 
 Book 0.2.1 - Body Part Creation
 
 A head is a part of every person. Understand "face" as head.
-A nose is a part of every person.
 A mouth is a part of every person.
 A eyes is a part of every person.
 Some hair is a part of every person.
@@ -125,7 +126,6 @@ An ass is a part of every person.
 
 A vagina is a part of every woman.
 Some breasts is a part of every woman.
-Some nipples is a part of every person.
 
 A chest is a part of every man.
 A penis is a part of every man.
@@ -192,7 +192,6 @@ Part 1.1.1b - Dressing room
 
 The Dressing room is a room. The description of The Dressing room is "A full-length mirror is here." The full-length mirror is scenery in the dressing room.
 The Dressing room is in the casino.
-The dressing room door is a door. It is west of the entrance and east of the dressing room.
 
 
 To peek is a verb.
@@ -263,7 +262,7 @@ Chapter 1.2.1c - Clothing
 A sundress is a kind of dress. The description of a sundress is "A casual dress in a lightweight fabric, cotton and a loose fitting.".
 The cover areas of a sundress is usually {shoulder area, upper torso area, lower torso area, lower back area, crotch area, thigh area}.
 The shifted description is "The sundress is hiked up and displays what is below.".
-The shiftyness of a sundress is raisable. The shift areas of a sundress is usually {crotch area, thigh area}.
+The shiftyness of a sundress is raisable. The shifting revealed cover areas of a sundress is usually {crotch area, thigh area}.
 
 A dark purple sundress is a kind of sundress. Gina wears a dark purple sundress.
 A black bra is a kind of bra. Gina wears a black bra.
@@ -302,12 +301,19 @@ Instead of quizzing Gina about a familiar thing:
 
 Chapter 1.2.1d - a chain of thoughts
 
-
-Instead of going a direction when the player is wearing a sundress and the player has an invitation:
+Before going a direction when the player is wearing a sundress and the player has an invitation:
 	If Rebecca is in the Entrance:
 		say "The woman in blue, before you, looks at you expectantly.";
 	Else:
-		say "[one of]The crowd is not what you expected, you feel very out of placed dressed like you are.[or]You don't want to go there dressed like this.[or]You'll have to find a solution for your attire first.[stopping]"
+		say "[one of]The crowd is not what you expected, you feel very out of placed dressed like you are.[or]You don't want to go there dressed like this.[or]You'll have to find a solution for your attire first.[stopping]";
+	Stop the action;
+
+Before doing something other than going west when the player is wearing a sundress and the player is in the entrance and the entrance is mapped east of the Dressing room:
+	If Rebecca has the invitation:
+		remove the invitation from play;
+		Monica drags you westwards in two turns from now;
+	say "[m][one of]Come on! Let's go![r] Monica shouts[r] Monica shouts[or]What are you waiting for?[r] Monica grabs your hand and start pulling you towards the dressing room.[or][bracket]Ok, Monica, have it your way..[close bracket][stopping]";
+	stop the action;
 
 Instead of thinking about crowd:
 	say "You smile, pushing your glasses up your nose subconsciously.";
@@ -318,35 +324,15 @@ Instead of thinking about yourself: [Good-sized breasts offset a thin waist and 
 Instead of thinking about Cindy:
 	say "[one of]Cindy is popular and beautiful, much like Monica, and they almost always are together. In truth you don't like Cindy that much[or]Cindy pretends to like you, but only because Monica is your friend. Monica is oblivious but you both know the score, but lets just ignore it to preserve the friendship with Monica[or]Cindy always makes you feel like a second class citizen, but it is nice to be with Monica[stopping].";
 
+Instead of thinking about Monica:
+	if Gina fancies Monica:
+		say "You stare at Monica's supple form, and wonder what it would be like to [one of]fondle her breasts[or]feel Monica's face between your legs[at random]. If you were to experiment with another women, Monica is certainly the top of your list.";
+	else:
+		say "[one of]Monica is the tallest at nearly six-foot, and destined to model. Her long, shapely legs and beautiful mane of dark hair make her stand out[or]You always liked Monica, despite her critical eye and harsh criticisms[stopping].";
 
-Instead of giving the invitation to Rebecca when the player has the invitation:
-	now Rebecca has the invitation;
-	clear the screen;
-	say "[line break][a]Welcome.[paragraph break]Let me give you the run down on the activities.[r][line break]";
-	say "She coaxes you out of the doorway and into the room proper as she points out various areas.[paragraph break]";
-	Now the description of the entrance is "You are back in the entrance.";
-	wait for any key;
-	say "[a]This is a fetish and bondage casino. Rather than playing for money, we play for other, more interesting things.";
-	wait for any key;
-	say "First of all, don't feel self-conscious about your clothing. Most people come dressed as you are. In the corner there, you will find a dressing room.";
-	wait for any key;
-	say "Your startup set of chips can be picked up there when you chose your fetish attire for the evening. The more extreme clothing you chose, the more chips you will receive.";
-	wait for any key;
-	say "If you find yourself running short on chips, you can return to the dressing room for more extreme attire. Once you start, it is much like a regular casino.";
-	wait for any key;
-	say "The only difference is that some of the games are quite different. I'll let you discover them as you explore.[r] She smiles an almost devious grin.";
-	wait for any key;
-	clear the screen;
-	say "[c]What's the point to it all?[r][line break]Cindy asks as she watched a towering blonde dressed in form fitting leather walk by.[paragraph break]";
-	say "[a]Just to have fun![paragraph break]You can fulfill your fantasies or just enjoy gambling. But remember, you can go into debt here, which must be satisfied by the end of the evening.";
+After quizzing Monica about last weekend:
+	say "[one of][m]'Yah, that was fun.'[r], Monica smiles while glancing at Cindy. [m]'Sad you couldn't come along.'[r][or]Monica blushes and smiles[stopping].";
 
-Instead of doing something other than going west while wearing sundresses and the decency threshold of the dressing room is not greater than the current decency of the player:
-	say "[m][one of]Come on! Let's go![or]What are we waiting for?[stopping][r] Monica shouts while pulling your hand.";
-
-
-At the time when Rebecca approaches:
-	Now Rebecca is in the entrance;
-	say "[a]Can I be of assistance?[r][paragraph break]As they stood and stared, a woman dressed in a short, tight blue rubber dress had approached them with a smile.";
 
 Instead of thinking about Friendship:
 	If the player has an invitation:
@@ -370,7 +356,7 @@ Instead of thinking about Friendship:
 		say "Monica approaches you.[paragraph break]";
 		wait for any key;
 		say "[m]Hey Gina, last night I came up with a plan to make some money, and have some fun.. What do you say, if we go to Vegas and for the three months and find jobs there? My niece told me there are always jobs there, this time of the year.[r][paragraph break]";
-		say "..and just while you were dreading the prospect, Monica came up with this great alternative plan.";
+		say "..and just while you were dreading the prospects, Monica came up with this great alternative plan.";
 		wait for any key;
 		clear the screen;
 		say "It had only been three nights on the town before you were invited to a party at Caesar's Palace, held in a large suite at the top of the tower. The girls conviced you to buy a new dress for the night, not a thing you'd normally do.. But the staring eyes from the young and exiting crowd proved that it was the right choice.[paragraph break]";
@@ -379,10 +365,10 @@ Instead of thinking about Friendship:
 		say "For the first time you got excited as well, seeing Monica going wild. By the end of the evening each had received several offers. Though most were invitations to just another party, one was particularly intriguing.";
 		say "A handsome young man had handed you a card with a simple address on it.[paragraph break][a]'It is a party for the daring, you'll live out your ultimate fantasies there.'[r]";
 		wait for any key;
-		say "Glancing over Monica's lovely form, this comment made you wonder. But when you press for details, however, the man simply smiled and told you:[paragraph break][a]'You'll have to wait and see.'[r]";
+		say "Glancing over Monica's lovely form, this comment made you wonder. But when you press for details, the man simply smiles and tells you:[paragraph break][a]'You'll have to wait and see.'[r]";
 		wait for any key;
 		clear the screen;
-		Now the description of the entrance is "You are still in the lobby staring at the crowd in the game room. An attendent noticed you by now and is walking in your direction.";
+		Now the description of the entrance is "You are still in the lobby, staring at the crowd in the game room. An attendent noticed you by now and is walking in your direction.";
 		Now the player is in the entrance;
 		Rebecca approaches in two turns from now;
 
@@ -390,14 +376,41 @@ Instead of thinking about Invitation:
 	say "It was handed to you by the handsome man in the Caesar's Palace, two days back.";
 	Rebecca approaches in one turn from now;
 
-Instead of thinking about Monica:
-	if Gina fancies Monica:
-		say "You stare at Monica's supple form, and wonder what it would be like to [one of]fondle her breasts[or]feel Monica's face between your legs[at random]. If you were to experiment with another women, Monica is certainly the top of your list.";
-	else:
-		say "[one of]Monica is the tallest at nearly six-foot, and destined to model. Her long, shapely legs and beautiful mane of dark hair make her stand out[or]You always liked Monica, despite her critical eye and harsh criticisms[stopping].";
+At the time when Rebecca approaches:
+	Now Rebecca is in the entrance;
+	say "[a]Can I be of assistance?[r][paragraph break]As they stood and stared, a woman dressed in a short, tight blue rubber dress had approached you with a smile.";
 
-After quizzing Monica about last weekend:
-	say "[one of][m]'Yah, that was fun.'[r], Monica smiles while glancing at Cindy. [m]'Sad you couldn't come along.'[r][or]Monica blushes and smiles[stopping].";
+Instead of giving the invitation to Rebecca when the player has the invitation:
+	now Rebecca has the invitation;
+	clear the screen;
+	say "[line break][a]Welcome.[paragraph break]Let me give you the run down on the activities.[r][line break]";
+	say "She coaxes you out of the doorway and into the room proper as she points out various areas.[paragraph break]";
+	Now the description of the entrance is "You are back in the entrance.";
+	wait for any key;
+	say "[a]This is a fetish and bondage casino. Rather than playing for money, we play for other, more interesting things.";
+	wait for any key;
+	say "First of all, don't feel self-conscious about your clothing. Most people come dressed as you are. In the corner there, you will find a dressing room.";
+	Now a Dressing room is mapped west of the entrance;
+	Now The entrance is mapped east of the Dressing room;
+	Now the decency threshold of the Dressing room is formal;
+	wait for any key;
+	say "Your startup set of chips can be picked up there when you chose your fetish attire for the evening. The more extreme clothing you chose, the more chips you will receive.";
+	wait for any key;
+	say "If you find yourself running short on chips, you can return to the dressing room for more extreme attire. Once you start, it is much like a regular casino.";
+	wait for any key;
+	say "The only difference is that some of the games are quite different. I'll let you discover them as you explore.[r] She smiles an almost devious grin.";
+	wait for any key;
+	clear the screen;
+	say "[c]What's the point to it all?[r][line break]Cindy asks as she watched a towering blonde dressed in form fitting leather walk by.[paragraph break]";
+	say "[a]Just to have fun![paragraph break]You can fulfill your fantasies or just enjoy gambling. But remember, you can go into debt here, which must be satisfied by the end of the evening.";
+	Now the player is in the entrance;
+
+At the time when Monica drags you westwards:
+	Now the player is in the dressing room;
+	Now Monica is in the dressing room;
+	Now Cindy is in the dressing room;
+	Now Rebecca is in the game room;
+
 
 Section 1 - Errands
 
